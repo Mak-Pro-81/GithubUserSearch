@@ -1,0 +1,1 @@
+export { userMockData } from './userData';
