@@ -1,1 +1,2 @@
-export { CamelCaseFormatter } from './CamelCaseFormatter';
+export { camelCaseFormatter } from './camelCaseFormatter';
+export { dateFormatter } from './dateFormatter';

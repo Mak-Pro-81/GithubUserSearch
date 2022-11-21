@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { List } from 'antd';
+import { mediaQueries } from 'src/styles';
 
 export const StyledInfoListItem = styled.div<{ mode: string }>`
   font-size: 1.3rem;
@@ -29,11 +30,24 @@ export const StyledInfoList = styled(List)`
     display: flex;
     flex-wrap: wrap;
 
+    ${mediaQueries(599)} {
+      margin-bottom: 1rem;
+    }
+
     li {
       width: 50%;
       margin-bottom: 2rem;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      ${mediaQueries(599)} {
+        width: 100%;
+        margin-bottom: 3rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 `;

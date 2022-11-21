@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import { Form } from 'antd';
+import { mediaQueries, breakpoints } from 'src/styles';
 
 export const StyledSearchForm = styled(Form)`
   display: flex;
   align-items: center;
+
+  ${mediaQueries(599)} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .ant-typography-danger {
     font-weight: 700;
@@ -13,6 +19,14 @@ export const StyledSearchForm = styled(Form)`
   .ant-form-item {
     &:nth-child(1) {
       flex: 1;
+
+      ${mediaQueries(599)} {
+        margin-bottom: 3rem;
+      }
+    }
+
+    ${mediaQueries(599)} {
+      width: 100%;
     }
   }
 
@@ -29,6 +43,10 @@ export const StyledSearchForm = styled(Form)`
         width: 2.8rem;
         height: 2.8rem;
         margin-right: 2rem;
+
+        ${mediaQueries(599)} {
+          margin-right: 1rem;
+        }
 
         * {
           width: inherit;
@@ -52,6 +70,11 @@ export const StyledSearchForm = styled(Form)`
 
     .ant-btn {
       margin-left: 1.5rem;
+
+      ${mediaQueries(599)} {
+        margin: 0;
+        width: 100%;
+      }
     }
   }
 `;

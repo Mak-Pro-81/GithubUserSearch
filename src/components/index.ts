@@ -7,3 +7,4 @@ export { StatisticsList } from './StatisticsList';
 export { Avatar } from './Avatar';
 export { MainInfo } from './MainInfo';
 export { InfoList } from './InfoList';
+export { Loader } from './Loader';

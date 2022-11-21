@@ -3,6 +3,7 @@ import { Urls } from 'src/constants';
 import { tUser } from 'src/types';
 
 interface iUserContext {
+  isLoading: boolean;
   user: tUser;
   setUserName: (value: string) => void;
   error: boolean;
@@ -18,6 +19,7 @@ const noop = (): void => {
 };
 
 export const UserContext = createContext<iUserContext>({
+  isLoading: true,
   user: {
     id: 0,
     login: '',
@@ -57,10 +59,12 @@ export const UserContextProvider = ({ children }: IUserContextProvider) => {
     message: '',
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const setUserName = async (value: string) => {
     try {
+      setIsLoading(true);
       const response = await fetch(`${Urls.GITHUB_USER_BASE_URL}${value}`);
       const user = await response.json();
 
@@ -72,7 +76,7 @@ export const UserContextProvider = ({ children }: IUserContextProvider) => {
         repos: user.public_repos,
       };
       setUser(modifiedUser);
-
+      setIsLoading(false);
       if (user.message) {
         throw new Error('error');
       }
@@ -82,7 +86,7 @@ export const UserContextProvider = ({ children }: IUserContextProvider) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, setUserName, error, setError }}>
+    <UserContext.Provider value={{ isLoading, user, setUserName, error, setError }}>
       {children}
     </UserContext.Provider>
   );

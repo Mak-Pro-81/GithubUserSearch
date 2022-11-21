@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { fonts } from './fontsTypes';
+import { mediaQueries } from './media';
 
 const fontStyles = () => {
   let formattedFonts = '';
@@ -289,7 +290,11 @@ export const GlobalStyle = createGlobalStyle`
       border-radius: 5px; }
 
   html {
-    font-size: 62.5%; }
+    font-size: 62.5%; 
+    ${mediaQueries(599)} {
+      font-size: 50%;
+    }
+  }
 
   body {
     font-family: 'SpaceMono';
@@ -315,6 +320,18 @@ export const GlobalStyle = createGlobalStyle`
 
   .ant-layout-has-sider {
     display: flex;
+
+    ${mediaQueries(767)} {
+     display: block;
+    }
+  }
+
+  .ant-layout-sider {
+
+    ${mediaQueries(599)} {
+     min-width: 100% !important;
+     max-width: 100% !important;
+    }
   }
 
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { List } from 'antd';
+import { mediaQueries } from 'src/styles';
 
 export const StyledStatisticsListItem = styled.div<{ mode: string }>`
   position: relative;
@@ -29,6 +30,10 @@ export const StyledStatisticsList = styled(List)<{ mode: string }>`
   padding: 2rem;
   margin-bottom: 3rem;
   transition: all 0.3s ease;
+
+  ${mediaQueries(599)} {
+    margin-bottom: 4.5rem;
+  }
 
   ul {
     display: flex;
