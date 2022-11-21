@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { ThemeContext, UserContext } from './contexts';
-
 import { Title } from './styles/Typography';
 import { MainContainer, MainHeader } from './layouts';
 
